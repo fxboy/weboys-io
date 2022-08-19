@@ -17,8 +17,9 @@ import java.util.stream.Collectors;
 public class FileObFilter {
     private Map<String,Object> type = new HashMap<>();
     public FileObFilter(String type){
-      this.type = Arrays.stream(type.split(",")).collect(Collectors.toMap(Function.identity(), v->0));
-        System.out.println(this.type);
+        if(type != null){
+            this.type = Arrays.stream(type.split(",")).collect(Collectors.toMap(Function.identity(), v->0));
+        }
     }
 
     public Boolean isFilter(File file){
